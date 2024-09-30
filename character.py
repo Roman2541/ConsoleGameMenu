@@ -47,7 +47,7 @@ class Character:
 
 class Warrior(Character): # Inherits from class Character
     def __init__(self, character, weapon, armour):
-        super().__init__(character.name, character.role, character.wealth, character.race, character.skill) # Calls Character constructor first 
+        super().__init__(character.name, character.role, character.wealth, character.race, character.skill) # Calls Character constructor first gg
         self.weapon = weapon
         self.armour = armour
 
