@@ -8,37 +8,37 @@ class Character:
         self.race = race
         self.skill = skill
 
-    def getName(self):
+    def get_name(self):
         return self.name
-    def getRole(self):
+    def get_role(self):
         return self.role
-    def getWealth(self):
+    def get_wealth(self):
         return self.wealth
-    def getRace(self):
+    def get_race(self):
         return self.race
-    def getSkill(self):
+    def get_skill(self):
         return self.skill
-    def getExtra1(self): 
+    def get_extra1(self): 
         return
-    def getExtra2(self):
+    def get_extra2(self):
         return
     
-    def setName(self, name): 
+    def set_name(self, name): 
         self.name = name
-    def setRole(self, role): 
+    def set_role(self, role): 
         self.role = role
-    def setWealth(self, wealth): 
+    def set_wealth(self, wealth): 
         self.wealth = wealth
-    def setRace(self, race): 
+    def set_race(self, race): 
         self.race = race
-    def setSkill(self, skill): 
+    def set_skill(self, skill): 
         self.skill = skill
-    def getExtra1(self, extra1):
+    def get_extra1(self, extra1):
         pass
-    def getExtra2(self, extra2):
+    def get_extra2(self, extra2):
         pass
 
-    def printDetails(self): 
+    def print_details(self): 
         print("Character Name: " + self.name)
         print("Character Role: " + self.role)
         print("Character Wealth: " + self.wealth)
@@ -51,18 +51,18 @@ class Warrior(Character): # Inherits from class Character
         self.weapon = weapon
         self.armour = armour
 
-    def getExtra1(self):
+    def get_extra1(self):
         return self.weapon
-    def getExtra2(self):
+    def get_extra2(self):
         return self.armour
     
-    def setExtra1(self, weapon): 
+    def set_extra1(self, weapon): 
         self.weapon = weapon
-    def setExtra2(self, armour): 
+    def set_extra2(self, armour): 
         self.armour = armour
 
-    def printDetails(self):
-        super().printDetails() # Calls print details function of parent class
+    def print_details(self):
+        super().print_details() # Calls print details function of parent class
         print("Character Weapon: " + self.weapon)
         print("Character Armour: " + self.armour)
 
@@ -72,37 +72,37 @@ class Mage(Character):
         self.spell = spell
         self.mana = mana
 
-    def getExtra1(self):
+    def get_extra1(self):
         return self.spell
-    def getExtra2(self):
+    def get_extra2(self):
         return self.mana
     
-    def setExtra1(self, spell): 
+    def set_extra1(self, spell): 
         self.spell = spell
-    def setExtra2(self, mana): 
+    def set_extra2(self, mana): 
         self.mana = mana
 
-    def printDetails(self): 
-        super().printDetails()
+    def print_details(self): 
+        super().print_details()
         print("Character Spell: " + self.spell)
         print("Character Mana: " + self.mana)
 
 #Shared attribute functions
-def userName():
+def user_name():
     while True:
         name = input("Please Enter an alphanumerical username with 16 or less characters: ")
-        isDuplicate = False
+        is_duplicate = False
         for character in characters: # Iteration through the array is necessary to ensure no duplicates
-            if character.getName() == name:
-                isDuplicate = True
-        if name.isalnum() and len(name) <= 16 and not isDuplicate: 
+            if character.get_name() == name:
+                is_duplicate = True
+        if name.isalnum() and len(name) <= 16 and not is_duplicate: 
             return name
-def userRole():
+def user_role():
     while True:
         role = input("Please Enter your Role (Warrior / Mage): ").lower()
         if role == "warrior" or role == "mage":
             return role
-def userWealth():
+def user_wealth():
     while True:
         try:
             wealth = int(input("Please Enter a Wealth greater than or equal to 0: "))
@@ -110,12 +110,12 @@ def userWealth():
                 return str(wealth) # Converting the return to a string so it can be used more easily to print
         except:
             pass
-def userRace():
+def user_race():
     while True:
         race = input("Please Enter your Race (Human / Dwarf / Elf): ").lower()
         if race == "human" or race == "dwarf" or race == "elf":
             return race
-def userSkill():
+def user_skill():
     while True:
         try:
             skill = int(input("Please Enter your Skill Level (1 - 5): "))
@@ -125,22 +125,22 @@ def userSkill():
             pass
 
 # Role based functions 
-def userWeapon():
+def user_weapon():
     while True:
         weapon = input("Please Select your Weapon (Sword / Axe) ").lower()
         if weapon == "sword" or weapon == "axe":
             return weapon
-def userArmour():
+def user_armour():
     while True:
         armour = input("Please Select your Weapon (Chainmail / Plate) ").lower()
         if armour == "chainmail" or armour == "plate":
             return armour
-def userSpell():
+def user_spell():
     while True:
         spell = input("Please Select your Weapon (Fireball / Lightning) ").lower()
         if spell == "fireball" or spell == "lightning":
             return spell
-def userMana():
+def user_mana():
     while True:
         try:
             mana = int(input("Please Enter your Mana Points (0 - 100): "))
